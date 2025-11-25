@@ -48,5 +48,3 @@ Pronto! Agora o projeto será iniciado com as seguintes url:
   ### Frontend
   
   O frontend estará disponível em `http://localhost:5174/`.
-  
-  ## Contribuindo
