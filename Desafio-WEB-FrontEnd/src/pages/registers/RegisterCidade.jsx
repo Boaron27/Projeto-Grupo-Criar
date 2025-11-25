@@ -3,6 +3,7 @@ import Input from "../../components/common/Input";
 import Form from "../../components/common/Form";
 import { Button } from "../../components/common/Button";
 import Navbar from "../../components/layout/Navbar";
+const CIDADE_LINK_API = import.meta.env.VITE_CIDADE_LINK_API;
 
 export default function RegisterCidade() {
   const [form, setForm] = useState({ nome: "", estado_id: "" });
@@ -24,7 +25,7 @@ export default function RegisterCidade() {
     if (Object.keys(v).length === 0) {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:8000/api/cidade", {
+        const response = await fetch(CIDADE_LINK_API, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

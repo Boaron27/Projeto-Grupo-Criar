@@ -3,6 +3,7 @@ import Input from "../../components/common/Input";
 import Form from "../../components/common/Form";
 import { Button } from "../../components/common/Button";
 import Navbar from "../../components/layout/Navbar";
+const CAMPANHA_LINK_API = import.meta.env.VITE_CAMPANHA_LINK_API;
 
 export default function RegisterCampanha() {
   const [form, setForm] = useState({ grupo_id: "", nome: "" });
@@ -27,7 +28,7 @@ export default function RegisterCampanha() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/api/campanha", {
+      const response = await fetch(CAMPANHA_LINK_API, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,7 +49,7 @@ export default function RegisterCampanha() {
         return;
       }
 
-      alert("✅ Campanha cadastrada com sucesso!");
+      alert("Campanha cadastrada com sucesso!");
 
       // limpa formulário
       setForm({ grupo_id: "", nome: "" });

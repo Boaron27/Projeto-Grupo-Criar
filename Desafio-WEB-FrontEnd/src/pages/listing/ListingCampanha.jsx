@@ -5,19 +5,19 @@ import Loader from "../../components/common/Loader";
 import api from "../../services/api";
 import BoxGeneric from "../../components/layout/BoxGeneric";
 import { BiFlag } from "react-icons/bi";
-import Modal from "../../components/common/Modal"; // Importa o modal
+import Modal from "../../components/common/Modal";
 
 function Campanha() {
   const [campanhas, setCampanhas] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [editingCampanha, setEditingCampanha] = useState(null); // Estado para a campanha sendo editada
+  const [editingCampanha, setEditingCampanha] = useState(null);
   const [formData, setFormData] = useState({
     nome: "",
     grupo_id: "",
     ativa: true,
-  }); // Dados do formulário de edição
+  });
   const [showEditModal, setShowEditModal] = useState(false);
 
   useEffect(() => {

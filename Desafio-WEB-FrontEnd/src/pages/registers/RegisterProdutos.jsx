@@ -3,6 +3,7 @@ import Input from "../../components/common/Input";
 import Form from "../../components/common/Form";
 import { Button } from "../../components/common/Button";
 import Navbar from "../../components/layout/Navbar";
+const PRODUTO_LINK_API = import.meta.env.VITE_PRODUTO_LINK_API;
 
 export default function CadastroProduto() {
   const [form, setForm] = useState({ nome: "", preco: "" });
@@ -24,7 +25,7 @@ export default function CadastroProduto() {
     if (Object.keys(v).length === 0) {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:8000/api/produto", {
+        const response = await fetch(PRODUTO_LINK_API, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -3,6 +3,7 @@ import Input from "../../components/common/Input";
 import Form from "../../components/common/Form";
 import { Button } from "../../components/common/Button";
 import Navbar from "../../components/layout/Navbar";
+const GRUPO_CIDADE_LINK_API = import.meta.env.VITE_GRUPO_CIDADE_LINK_API;
 
 export default function RegisterGrupo() {
   const [form, setForm] = useState({ nome: "" });
@@ -23,7 +24,7 @@ export default function RegisterGrupo() {
     if (Object.keys(v).length === 0) {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:8000/api/grupo_cidade", {
+        const response = await fetch(GRUPO_CIDADE_LINK_API, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

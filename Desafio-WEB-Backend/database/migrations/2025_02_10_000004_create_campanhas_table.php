@@ -20,15 +20,12 @@ class CreateCampanhasTable extends Migration
                 ->onDelete('cascade');
         });
 
-        // Regra: só 1 campanha ativa por grupo
-        Schema::table('campanha', function (Blueprint $table) {
-            $table->unique(['grupo_id'], 'ux_campanha_ativa_por_grupo')
-                  ->where('ativa', true);
-        });
+        DB::statement('CREATE UNIQUE INDEX ux_campanha_ativa_por_grupo ON public.campanha (grupo_id) WHERE ativa = true');
     }
 
     public function down()
     {
-        Schema::dropIfExists('campanha');
-    }
+            Schema::dropIfExists('campanha');
+     }
+
 }
