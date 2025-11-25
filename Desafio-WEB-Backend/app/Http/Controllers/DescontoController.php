@@ -36,8 +36,6 @@ class DescontoController extends Controller
      */
     public function store(StoreDescontoRequest $request)
     {
-
-
         try {
             $data = $request->validated();
             $desconto = new Desconto();

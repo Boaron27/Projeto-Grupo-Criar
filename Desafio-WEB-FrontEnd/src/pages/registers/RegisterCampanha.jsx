@@ -3,7 +3,7 @@ import Input from "../../components/common/Input";
 import Form from "../../components/common/Form";
 import { Button } from "../../components/common/Button";
 import Navbar from "../../components/layout/Navbar";
-const CAMPANHA_LINK_API = import.meta.env.VITE_CAMPANHA_LINK_API;
+const LINK_API = import.meta.env.VITE_LINK_API;
 
 export default function RegisterCampanha() {
   const [form, setForm] = useState({ grupo_id: "", nome: "" });
@@ -28,7 +28,7 @@ export default function RegisterCampanha() {
     setLoading(true);
 
     try {
-      const response = await fetch(CAMPANHA_LINK_API, {
+      const response = await fetch(LINK_API + "campanha", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

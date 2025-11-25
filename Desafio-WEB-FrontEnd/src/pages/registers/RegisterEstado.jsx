@@ -3,7 +3,7 @@ import Input from "../../components/common/Input";
 import Form from "../../components/common/Form";
 import { Button } from "../../components/common/Button";
 import Navbar from "../../components/layout/Navbar";
-const ESTADO_LINK_API = import.meta.env.VITE_ESTADO_LINK_API;
+const LINK_API = import.meta.env.VITE_LINK_API;
 
 export default function RegisterEstado() {
   const [form, setForm] = useState({ nome: "", sigla: "" });
@@ -27,7 +27,7 @@ export default function RegisterEstado() {
     if (Object.keys(v).length === 0) {
       setLoading(true);
       try {
-        const response = await fetch(ESTADO_LINK_API, {
+        const response = await fetch(LINK_API + "estado", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

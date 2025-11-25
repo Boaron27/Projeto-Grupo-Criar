@@ -3,7 +3,7 @@ import Input from "../../components/common/Input";
 import Form from "../../components/common/Form";
 import { Button } from "../../components/common/Button";
 import Navbar from "../../components/layout/Navbar";
-const CIDADE_LINK_API = import.meta.env.VITE_CIDADE_LINK_API;
+const LINK_API = import.meta.env.VITE_LINK_API;
 
 export default function RegisterCidade() {
   const [form, setForm] = useState({ nome: "", estado_id: "" });
@@ -25,7 +25,7 @@ export default function RegisterCidade() {
     if (Object.keys(v).length === 0) {
       setLoading(true);
       try {
-        const response = await fetch(CIDADE_LINK_API, {
+        const response = await fetch(LINK_API + "cidade", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export default function RegisterCidade() {
 
         if (response.ok) {
           alert("Cidade cadastrada com sucesso!");
-          setForm({ nome: "", estado_id: "" }); // Limpar o formulário
+          setForm({ nome: "", estado_id: "" });
         } else {
           console.log("Erro de validação:", data.errors);
           setErrors(data.errors || {});

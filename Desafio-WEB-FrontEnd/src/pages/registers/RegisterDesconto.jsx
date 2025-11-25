@@ -3,7 +3,7 @@ import Input from "../../components/common/Input";
 import Form from "../../components/common/Form";
 import { Button } from "../../components/common/Button";
 import Navbar from "../../components/layout/Navbar";
-const DESCONTO_LINK_API = import.meta.env.VITE_DESCONTO_LINK_API;
+const LINK_API = import.meta.env.VITE_LINK_API;
 
 export default function RegisterDesconto() {
   const [form, setForm] = useState({
@@ -40,7 +40,7 @@ export default function RegisterDesconto() {
     if (Object.keys(v).length === 0) {
       setLoading(true);
       try {
-        const response = await fetch(DESCONTO_LINK_API, {
+        const response = await fetch(LINK_API + "desconto", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -52,7 +52,7 @@ export default function RegisterDesconto() {
 
         if (response.ok) {
           alert("Desconto cadastrado com sucesso!");
-          setForm({ campanha_id: "", valor: "", percentual: "" }); // Limpar o formulário
+          setForm({ campanha_id: "", valor: "", percentual: "" });
         } else {
           console.log("Erro de validação:", data.errors);
           setErrors(data.errors || {});
