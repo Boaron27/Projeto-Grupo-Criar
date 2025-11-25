@@ -5,19 +5,19 @@ import Loader from "../../components/common/Loader";
 import api from "../../services/api";
 import BoxGeneric from "../../components/layout/BoxGeneric";
 import { BiBuildings } from "react-icons/bi";
-import Modal from "../../components/common/Modal"; // Importa o modal
+import Modal from "../../components/common/Modal";
 
 function Cidade() {
   const [cidades, setCidades] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [editingCidade, setEditingCidade] = useState(null); // Estado para a cidade sendo editada
+  const [editingCidade, setEditingCidade] = useState(null);
   const [formData, setFormData] = useState({
     nome: "",
     estado_id: "",
-  }); // Dados do formulário de edição
-  const [showEditModal, setShowEditModal] = useState(false); // Controle de visibilidade do modal
+  });
+  const [showEditModal, setShowEditModal] = useState(false);
 
   useEffect(() => {
     loadCidades();
@@ -46,34 +46,31 @@ function Cidade() {
     setCidades((prev) => prev.filter((c) => c.id !== id));
   };
 
-  // Função para abrir o modal de edição
   const handleEditClick = (cidade) => {
     setEditingCidade(cidade);
     setFormData({
       nome: cidade.nome,
       estado_id: cidade.estado_id,
     });
-    setShowEditModal(true); // Exibe o modal de edição
+    setShowEditModal(true);
   };
 
-  // Função para salvar as edições
   const handleSaveEdit = async () => {
     try {
-      await api.put(`/cidade/${editingCidade.id}`, formData); // Envia os dados para a API
+      await api.put(`/cidade/${editingCidade.id}`, formData);
       setCidades((prev) =>
         prev.map((c) => (c.id === editingCidade.id ? { ...c, ...formData } : c))
       );
-      setShowEditModal(false); // Fecha o modal após salvar
-      setEditingCidade(null); // Limpa o estado de edição
+      setShowEditModal(false);
+      setEditingCidade(null);
     } catch (error) {
       console.error("Erro ao salvar edição:", error);
     }
   };
 
-  // Função para cancelar a edição
   const handleCancelEdit = () => {
-    setShowEditModal(false); // Fecha o modal sem salvar
-    setEditingCidade(null); // Limpa o estado de edição
+    setShowEditModal(false);
+    setEditingCidade(null);
   };
 
   return (
@@ -104,7 +101,7 @@ function Cidade() {
                       Deseja remover a cidade <b>{cidade.nome}</b>?
                     </>
                   }
-                  onEdit={() => handleEditClick(cidade)} // Abre o modal para editar
+                  onEdit={() => handleEditClick(cidade)}
                   onDelete={() => deleteCidade(cidade.id)}
                 />
               ))}
@@ -138,7 +135,7 @@ function Cidade() {
           <Modal
             isOpen={showEditModal}
             title="Editar Cidade"
-            onClose={handleCancelEdit} // Fecha o modal
+            onClose={handleCancelEdit}
           >
             <label>
               <h4>Nome:</h4>

@@ -39,7 +39,7 @@ export default function RegisterEstado() {
 
         if (response.ok) {
           alert("Estado cadastrado com sucesso!");
-          setForm({ nome: "", sigla: "" }); // Limpar o formulário
+          setForm({ nome: "", sigla: "" });
         } else {
           console.log("Erro de validação:", data.errors);
           setErrors(data.errors || {});

@@ -54,28 +54,27 @@ function Campanha() {
       grupo_id: campanha.grupo_id,
       ativa: campanha.ativa,
     });
-    setShowEditModal(true); // Exibe o modal de edição
+    setShowEditModal(true);
   };
 
   const handleSaveEdit = async () => {
     try {
-      // Atualizando os dados da campanha na API
       await api.put(`/campanha/${editingCampanha.id}`, formData);
       setCampanhas((prev) =>
         prev.map((c) =>
           c.id === editingCampanha.id ? { ...c, ...formData } : c
         )
       );
-      setShowEditModal(false); // Fecha o modal após salvar
-      setEditingCampanha(null); // Limpa o estado de edição
+      setShowEditModal(false);
+      setEditingCampanha(null);
     } catch (error) {
       console.error("Erro ao salvar edição:", error);
     }
   };
 
   const handleCancelEdit = () => {
-    setShowEditModal(false); // Fecha o modal sem salvar
-    setEditingCampanha(null); // Limpa o estado de edição
+    setShowEditModal(false);
+    setEditingCampanha(null);
   };
 
   return (
@@ -106,7 +105,7 @@ function Campanha() {
                       Deseja remover a campanha <b>{campanha.nome}</b>?
                     </>
                   }
-                  onEdit={() => handleEditClick(campanha)} // Abre o modal para editar
+                  onEdit={() => handleEditClick(campanha)}
                   onDelete={() => deleteCampanha(campanha.id)}
                 />
               ))}
@@ -138,7 +137,7 @@ function Campanha() {
           <Modal
             isOpen={showEditModal}
             title="Editar Campanha"
-            onClose={handleCancelEdit} // Fecha o modal
+            onClose={handleCancelEdit}
           >
             <label>
               <h4>Nome:</h4>

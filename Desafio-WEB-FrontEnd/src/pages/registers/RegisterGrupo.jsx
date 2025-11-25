@@ -36,7 +36,7 @@ export default function RegisterGrupo() {
 
         if (response.ok) {
           alert("Grupo cadastrado com sucesso!");
-          setForm({ nome: "" }); // Limpar o formulário
+          setForm({ nome: "" });
         } else {
           console.log("Erro de validação:", data.errors);
           setErrors(data.errors || {});

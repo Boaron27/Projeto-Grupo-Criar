@@ -5,7 +5,7 @@ import Loader from "../../components/common/Loader";
 import api from "../../services/api";
 import BoxGeneric from "../../components/layout/BoxGeneric";
 import { BiGroup } from "react-icons/bi";
-import Modal from "../../components/common/Modal"; // Importa o modal
+import Modal from "../../components/common/Modal";
 
 function GrupoCidade() {
   const [grupos, setGrupos] = useState([]);
@@ -53,7 +53,7 @@ function GrupoCidade() {
     setFormData({
       nome: grupo.nome,
     });
-    setShowEditModal(true); // Exibe o modal de edição
+    setShowEditModal(true);
   };
 
   const handleSaveEdit = async () => {
@@ -100,7 +100,7 @@ function GrupoCidade() {
                       Deseja remover o grupo <b>{grupo.nome}</b>?
                     </>
                   }
-                  onEdit={() => handleEditClick(grupo)} // Abre o modal para editar
+                  onEdit={() => handleEditClick(grupo)}
                   onDelete={() => deleteGrupo(grupo.id)}
                 />
               ))}
@@ -132,7 +132,7 @@ function GrupoCidade() {
           <Modal
             isOpen={showEditModal}
             title="Editar Grupo"
-            onClose={handleCancelEdit} // Fecha o modal
+            onClose={handleCancelEdit}
           >
             <label>
               <h4>Nome:</h4>

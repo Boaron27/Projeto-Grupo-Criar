@@ -5,18 +5,18 @@ import Loader from "../../components/common/Loader";
 import api from "../../services/api";
 import BoxGeneric from "../../components/layout/BoxGeneric";
 import { BiMap } from "react-icons/bi";
-import Modal from "../../components/common/Modal"; // Importa o modal
+import Modal from "../../components/common/Modal";
 
 function Estado() {
   const [estados, setEstados] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [editingEstado, setEditingEstado] = useState(null); // Estado para o estado sendo editado
+  const [editingEstado, setEditingEstado] = useState(null);
   const [formData, setFormData] = useState({
     nome: "",
     sigla: "",
-  }); // Dados do formulário de edição
+  });
   const [showEditModal, setShowEditModal] = useState(false);
 
   useEffect(() => {
@@ -52,25 +52,25 @@ function Estado() {
       nome: estado.nome,
       sigla: estado.sigla,
     });
-    setShowEditModal(true); // Exibe o modal de edição
+    setShowEditModal(true);
   };
 
   const handleSaveEdit = async () => {
     try {
-      await api.put(`/estado/${editingEstado.id}`, formData); // Envia os dados para a API
+      await api.put(`/estado/${editingEstado.id}`, formData);
       setEstados((prev) =>
         prev.map((e) => (e.id === editingEstado.id ? { ...e, ...formData } : e))
       );
-      setShowEditModal(false); // Fecha o modal após salvar
-      setEditingEstado(null); // Limpa o estado de edição
+      setShowEditModal(false);
+      setEditingEstado(null);
     } catch (error) {
       console.error("Erro ao salvar edição:", error);
     }
   };
 
   const handleCancelEdit = () => {
-    setShowEditModal(false); // Fecha o modal sem salvar
-    setEditingEstado(null); // Limpa o estado de edição
+    setShowEditModal(false);
+    setEditingEstado(null);
   };
 
   return (
@@ -100,7 +100,7 @@ function Estado() {
                       Deseja remover o estado <b>{estado.nome}</b>?
                     </>
                   }
-                  onEdit={() => handleEditClick(estado)} // Abre o modal para editar
+                  onEdit={() => handleEditClick(estado)}
                   onDelete={() => deleteEstado(estado.id)}
                 />
               ))}
@@ -132,7 +132,7 @@ function Estado() {
           <Modal
             isOpen={showEditModal}
             title="Editar Estado"
-            onClose={handleCancelEdit} // Fecha o modal
+            onClose={handleCancelEdit}
           >
             <label>
               <h4>Nome:</h4>

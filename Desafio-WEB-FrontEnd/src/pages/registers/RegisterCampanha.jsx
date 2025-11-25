@@ -40,7 +40,6 @@ export default function RegisterCampanha() {
       const data = await response.json();
 
       if (!response.ok) {
-        // erros de validação do Laravel (422)
         if (data.errors) {
           setErrors(data.errors);
         } else {

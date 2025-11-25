@@ -37,7 +37,7 @@ export default function CadastroProduto() {
 
         if (response.ok) {
           alert("Produto cadastrado com sucesso!");
-          setForm({ nome: "", preco: "" }); // Limpar o formulário
+          setForm({ nome: "", preco: "" });
         } else {
           console.log("Erro de validação:", data.errors);
           setErrors(data.errors || {});
