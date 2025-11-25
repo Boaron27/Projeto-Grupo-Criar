@@ -41,12 +41,12 @@ Como explicado acima, o docker será necessario para o funcionamento do projeto
 
 Pronto! Agora o projeto será iniciado com as seguintes url:
 
-### Backend
-
-O backend estará disponível em `http://localhost:8000`.
-
-### Frontend
-
-O frontend estará disponível em `http://localhost:5174/`.
-
-## Contribuindo
+  ### Backend
+  
+  O backend estará disponível em `http://localhost:8000`.
+  
+  ### Frontend
+  
+  O frontend estará disponível em `http://localhost:5174/`.
+  
+  ## Contribuindo
