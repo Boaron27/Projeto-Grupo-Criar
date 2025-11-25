@@ -1,0 +1,104 @@
+.box_dark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.box_dark.opened {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background-color: rgb(17, 17, 17);
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header svg {
+  cursor: pointer;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.modal-enter {
+  opacity: 0;
+}
+.modal-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.modal-exit {
+  opacity: 1;
+}
+.modal-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+h4 {
+  color: white;
+}
+
+.modal .form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.modal .form-row h4 {
+  color: white;
+  width: 30%;
+}
+
+.modal .form-row input[type="checkbox"] {
+  width: 30%;
+  margin-left: 10px;
+}
+
+.modal .form-row input[type="checkbox"] {
+  display: none;
+}
+
+.modal .form-row input[type="checkbox"] + label {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffffff;
+  border-radius: 4px;
+  background-color: #fff;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.modal .form-row input[type="checkbox"]:checked + label {
+  background-color: #135000;
+  border-color: #529900;
+}

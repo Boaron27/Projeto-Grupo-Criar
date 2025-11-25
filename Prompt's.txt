@@ -1,0 +1,43 @@
+===== sqlCreateDB ======
+
+    Necessito de um modelo SQL completo para PostgreSQL contendo o seguinte:
+        -Estados (id, nome, sigla).
+        -Cidades (id, nome, estado_id).
+        -Grupos de cidades (clusters).
+        -Tabela associativa grupo_cidade (grupo_id, cidade_id).
+        -Campanhas vinculadas a grupos, onde cada grupo pode ter apenas 1 campanha ativa.
+        -Descontos vinculados a campanhas, permitindo apenas valor OU percentual.
+        -Produtos (id, nome, preco).
+
+    Configurações necessarias : 
+        -PK, FK, UNIQUE e CHECK constraints.
+        -Regra que impede mais de uma campanha ativa no mesmo grupo.
+        -Regra que exige desconto em valor XOR percentual.
+        -Comandos CREATE TABLE organizados e comentados.
+        -Gere o SQL completo.
+
+===== sqlCreateDB ======
+
+
+===== sqlLoadDb =====
+
+    Necessito que você gere uma carga SQL completa, seguindo estritamente as tabelas abaixo.
+    A carga deve vir organizada, formatada e com comentários, seguindo um padrão limpo e legível.
+
+        Tabelas do banco
+        estados(id, nome, sigla)
+        cidades(id, nome, estado_id)
+        grupos_cidades(id, nome)
+        grupo_cidade(id, grupo_id, cidade_id)
+        campanhas(id, grupo_id, nome, ativa)
+        descontos(id, campanha_id, valor_desconto, percentual_desconto)
+        produtos(id, nome, preco)
+
+    Configurações necessarias :
+        Uma cidade pertence a um único grupo.
+        Um grupo pode ter várias cidades.
+        Cada grupo pode ter apenas uma campanha ativa.
+        Em descontos, somente valor_desconto OU percentual_desconto deve ser preenchido.
+        Gere entre 3 e 5 registros por tabela, com dados coerentes e realistas.
+
+===== sqlLoadDb =====
