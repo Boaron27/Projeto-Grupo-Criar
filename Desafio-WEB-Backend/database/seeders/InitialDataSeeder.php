@@ -9,6 +9,16 @@ class InitialDataSeeder extends Seeder
 {
     public function run(): void
     {
+        // Limpa as tabelas para evitar duplicação
+        DB::table('estado')->truncate();
+        DB::table('cidade')->truncate();
+        DB::table('grupos_cidades')->truncate();
+        DB::table('grupo_cidade')->truncate();
+        DB::table('campanha')->truncate();
+        DB::table('desconto')->truncate();
+        DB::table('produto')->truncate();
+
+
         // ESTADOS
         DB::table('estado')->insert([
             ['nome' => 'São Paulo', 'sigla' => 'SP'],
