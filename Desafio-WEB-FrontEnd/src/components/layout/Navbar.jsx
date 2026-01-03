@@ -7,7 +7,11 @@ function Navbar() {
     <nav className="menu">
       <div className="logo">
         <Link to="/">
-          <h3 className="logo">Grupo Criar</h3>
+            <img
+                src={Logo}
+                alt="Logo Grupo Criar"
+                style={{ width: '35px', height: 'auto' }} //
+            />
         </Link>
       </div>
 
